@@ -88,6 +88,55 @@ repl & rot -.assembler.->smpl[Smart Plating]
 end
 ```
 
+### Tier 3
+
+```mermaid
+graph TD;
+
+%% Raw resources
+subgraph Raw
+co[Coal]
+cop[Copper]
+l[Limestone]
+fe[Iron]
+flora[Leaves & Wood]
+end
+
+%% Tier 0
+subgraph Tier 0 base
+flora--constructor-->bio[Biomass]
+cop--foundry-->copi[Copper Ingot]
+fe--foundry-->fei[Iron Ingot]
+l--constructor-->con[Concrete]
+end
+subgraph Tier 0 items
+copi--constructor-->wir[Wire]
+wir--constructor-->cab[Cable]
+fei--constructor-->rod[Iron Rod]
+fei--constructor-->pla[Iron Plate]
+rod--constructor-->sc[Screw]
+sc & pla-.assembler.->repl[Reinforced Iron Plate]
+end
+
+%% Tier 2 - no alts
+subgraph Tier 2
+bio--constructor-->sbio[Solid Biofuel]
+copi--constructor-->cops[Copper Sheet]
+repl & rod-.assembler.->mod[Modular Frame]
+rod & sc -.assembler.->rot[Rotor]
+repl & rot -.assembler.->smpl[Smart Plating]
+end
+
+%% Tier 3 - no alts
+subgraph Tier 3
+fe & co -.foundry.-> st[Steel Ingot]
+st --constructor--> stb[Steel Beam]
+st --constructor--> stp[Steel Pipe]
+stb & mod -.assembler.-> vf[Versatile Framework]
+end
+
+```
+
 ### Tier 4
 
 ```mermaid
