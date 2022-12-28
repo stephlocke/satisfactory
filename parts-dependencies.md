@@ -228,17 +228,12 @@ graph TD;
 %% Raw resources
 subgraph Raw
 ba[Bauxite]
-ca[Caterium]
 co[Coal]
 cop[Copper]
 crud[Crude Oil]
 l[Limestone]
 fe[Iron]
-n[Nitrogren]
-q[Raw Quartz]
-sam[SAM ore]
 su[Sulfur]
-u[Uranium]
 h2o[Water]
 flora[Leaves & Wood]
 end
@@ -317,7 +312,7 @@ acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
 end
 ```
 
-### Tier 8
+### Tier 8 - WIP!
 ```mermaid
 graph TD;
 
