@@ -264,6 +264,87 @@ l[Limestone]
 fe[Iron]
 su[Sulfur]
 h2o[Water]
+end
+
+%% Tier 0
+subgraph Tier 0 base
+cop--foundry-->copi[Copper Ingot]
+fe--foundry-->fei[Iron Ingot]
+l--constructor-->con[Concrete]
+end
+subgraph Tier 0 items
+copi--constructor-->wir[Wire]
+wir--constructor-->cab[Cable]
+fei--constructor-->rod[Iron Rod]
+fei--constructor-->pla[Iron Plate]
+rod--constructor-->sc[Screw]
+sc & pla-.assembler.->repl[Reinforced Iron Plate]
+end
+
+%% Tier 2 - no alts
+subgraph Tier 2
+copi--constructor-->cops[Copper Sheet]
+repl & rod-.assembler.->mod[Modular Frame]
+rod & sc -.assembler.->rot[Rotor]
+end
+
+%% Tier 3 - no alts
+subgraph Tier 3
+fe & co -.foundry.-> st[Steel Ingot]
+st --constructor--> stb[Steel Beam]
+st --constructor--> stp[Steel Pipe]
+end
+
+%% Tier 4 - no alts
+subgraph Tier 4
+stp & wir -.assembler.-> stat[Stator]
+stat & cab -.asembler.-> aw[Automated wiring]
+stb & con -.assembler.-> eib[Encased Industrial Beam]
+mod & stp -.assembler.-> hmod[Heavy Modular Frame]
+end
+
+%% Tier 5 - no alts
+subgraph Tier 5
+crud --refinery--> plas[Plastic] 
+plas & cops -.assembler.->cb[Circuit Board]
+cb & cab & plas & sc -.manufacturer.-> pc[Computer]
+aw & cb & hmod & pc -.manufacturer.-> acu[Adaptive Control Unit]
+end
+
+%% Tier 7 - no alts
+subgraph Tier 7
+ba & h2o -.refinery.-> als[Alumina Solution] --byproduct--> si[Silica]
+als & co -.refinery.-> alsc[Aluminium Scrap] %% --byproduct--> h2o
+als & si -.foundry.->ali[Aluminium Ingot]
+ali & copi -.assembler.-> aas[Alclad Aluminium Sheet]
+ali --constructor--> ac[Aluminium Casing]
+su & h2o -.refinery.-> sua[Sulfuric Acid]
+sua & als & ac -.blender.->bat[Battery]
+ac & pc & crysosc[Crystal Oscillator **] -.manufacturer.-> rcu[Radio Control Unit]
+acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
+
+end
+```
+
+### Tier 8 - WIP!
+```mermaid
+graph TD;
+
+%% Raw resources
+subgraph Raw
+ba[Bauxite]
+ca[Caterium]
+co[Coal]
+cop[Copper]
+crud[Crude Oil]
+l[Limestone]
+fe[Iron]
+n[Nitrogren]
+q[Raw Quartz]
+sam[SAM ore]
+su[Sulfur]
+u[Uranium]
+h2o[Water]
 flora[Leaves & Wood]
 end
 
@@ -337,11 +418,17 @@ su & h2o -.refinery.-> sua[Sulfuric Acid]
 sua & als & ac -.blender.->bat[Battery]
 ac & pc & crysosc[Crystal Oscillator **] -.manufacturer.-> rcu[Radio Control Unit]
 acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
+end
 
+%% Tier 8 - no alts
+subgraph Tier 8 - WIP
+copi --constructor-->copp[Copper Powder]
+n & h2o & fep -.blender.-> na[Nitric Acid]
+ali --constructor--> eft[Empty Fluid Tank]
 end
 ```
 
-### Tier 8 - WIP!
+### All non-alt item dependencies - WIP!
 ```mermaid
 graph TD;
 
