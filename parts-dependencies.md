@@ -244,7 +244,7 @@ hor & ec -.packager.-> phor[Packaged Heavy Oil Residue]
 fu & ec -.packager.-> pfu[Packaged Fuel]
 lbio & ec -.packager.-> plbio[Packaged Liquid Biofuel]
 plas & cops -.assembler.->cb[Circuit Board]
-mot & rot & smpl -.manufacturer.-> me[Modular Engine]
+mo & rot & smpl -.manufacturer.-> me[Modular Engine]
 cb & cab & plas & sc -.manufacturer.-> pc[Computer]
 aw & cb & hmod & pc -.manufacturer.-> acu[Adaptive Control Unit]
 end
@@ -270,7 +270,6 @@ end
 subgraph Tier 0 base
 cop--foundry-->copi[Copper Ingot]
 fe--foundry-->fei[Iron Ingot]
-l--constructor-->con[Concrete]
 end
 subgraph Tier 0 items
 copi--constructor-->wir[Wire]
@@ -285,13 +284,11 @@ end
 subgraph Tier 2
 copi--constructor-->cops[Copper Sheet]
 repl & rod-.assembler.->mod[Modular Frame]
-rod & sc -.assembler.->rot[Rotor]
 end
 
 %% Tier 3 - no alts
 subgraph Tier 3
 fe & co -.foundry.-> st[Steel Ingot]
-st --constructor--> stb[Steel Beam]
 st --constructor--> stp[Steel Pipe]
 end
 
@@ -299,7 +296,6 @@ end
 subgraph Tier 4
 stp & wir -.assembler.-> stat[Stator]
 stat & cab -.asembler.-> aw[Automated wiring]
-stb & con -.assembler.-> eib[Encased Industrial Beam]
 mod & stp -.assembler.-> hmod[Heavy Modular Frame]
 end
 
