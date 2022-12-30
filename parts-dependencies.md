@@ -264,6 +264,8 @@ l[Limestone]
 fe[Iron]
 su[Sulfur]
 h2o[Water]
+q[Raw Quartz]
+ca[Caterium]
 end
 
 %% Tier 0
@@ -307,6 +309,17 @@ cb & cab & plas & sc -.manufacturer.-> pc[Computer]
 aw & cb & hmod & pc -.manufacturer.-> acu[Adaptive Control Unit]
 end
 
+%% Research items
+subgraph Research
+q --constructor--> qc[Quartz Crystals]
+qc & repl -.assembler.-> crysosc[Crystal Oscillator]
+ca --foundry--> cai[Caterium Ingots]
+cai --constructor--> qu[Quickwire]
+cops & qu -.assembler.->ail[AI Limiter]
+qu & cab & cb -.manufacturer.->hsc[High-Speed Connector]
+pc & ail & hsc & plas -.manufacturer.-> spc[Supercomputer]
+end
+
 %% Tier 7 - no alts
 subgraph Tier 7
 ba & h2o -.refinery.-> als[Alumina Solution] --byproduct--> si[Silica]
@@ -316,9 +329,8 @@ ali & copi -.assembler.-> aas[Alclad Aluminium Sheet]
 ali --constructor--> ac[Aluminium Casing]
 su & h2o -.refinery.-> sua[Sulfuric Acid]
 sua & als & ac -.blender.->bat[Battery]
-ac & pc & crysosc[Crystal Oscillator **] -.manufacturer.-> rcu[Radio Control Unit]
-acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
-
+ac & pc & crysosc-.manufacturer.-> rcu[Radio Control Unit]
+acu & spc -.assembler.-> ads[Assembly Director System]
 end
 ```
 
@@ -403,6 +415,17 @@ cb & cab & plas & sc -.manufacturer.-> pc[Computer]
 aw & cb & hmod & pc -.manufacturer.-> acu[Adaptive Control Unit]
 end
 
+%% Research items
+subgraph Research
+q --constructor--> qc[Quartz Crystals]
+qc & repl -.assembler.-> crysosc[Crystal Oscillator]
+ca --foundry--> cai[Caterium Ingots]
+cai --constructor--> qu[Quickwire]
+cops & qu -.assembler.->ail[AI Limiter]
+qu & cab & cb -.manufacturer.->hsc[High-Speed Connector]
+pc & ail & hsc & plas -.manufacturer.-> spc[Supercomputer]
+end
+
 %% Tier 7 - no alts
 subgraph Tier 7
 ba & h2o -.refinery.-> als[Alumina Solution] --byproduct--> si[Silica]
@@ -412,8 +435,8 @@ ali & copi -.assembler.-> aas[Alclad Aluminium Sheet]
 ali --constructor--> ac[Aluminium Casing]
 su & h2o -.refinery.-> sua[Sulfuric Acid]
 sua & als & ac -.blender.->bat[Battery]
-ac & pc & crysosc[Crystal Oscillator **] -.manufacturer.-> rcu[Radio Control Unit]
-acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
+ac & pc & crysosc-.manufacturer.-> rcu[Radio Control Unit]
+acu & spc -.assembler.-> ads[Assembly Director System]
 end
 
 %% Tier 8 - no alts
@@ -505,6 +528,17 @@ cb & cab & plas & sc -.manufacturer.-> pc[Computer]
 aw & cb & hmod & pc -.manufacturer.-> acu[Adaptive Control Unit]
 end
 
+%% Research items
+subgraph Research
+q --constructor--> qc[Quartz Crystals]
+qc & repl -.assembler.-> crysosc[Crystal Oscillator]
+ca --foundry--> cai[Caterium Ingots]
+cai --constructor--> qu[Quickwire]
+cops & qu -.assembler.->ail[AI Limiter]
+qu & cab & cb -.manufacturer.->hsc[High-Speed Connector]
+pc & ail & hsc & plas -.manufacturer.-> spc[Supercomputer]
+end
+
 %% Tier 7 - no alts
 subgraph Tier 7
 ba & h2o -.refinery.-> als[Alumina Solution] --byproduct--> si[Silica]
@@ -514,8 +548,8 @@ ali & copi -.assembler.-> aas[Alclad Aluminium Sheet]
 ali --constructor--> ac[Aluminium Casing]
 su & h2o -.refinery.-> sua[Sulfuric Acid]
 sua & als & ac -.blender.->bat[Battery]
-ac & pc & crysosc[Crystal Oscillator **] -.manufacturer.-> rcu[Radio Control Unit]
-acu & spc[Supercomputer **] -.assembler.-> ads[Assembly Director System]
+ac & pc & crysosc-.manufacturer.-> rcu[Radio Control Unit]
+acu & spc -.assembler.-> ads[Assembly Director System]
 end
 
 %% Tier 8 - no alts
